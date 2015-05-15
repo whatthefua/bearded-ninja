@@ -2,11 +2,26 @@
 <html>
 	<head>
 		<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="lemonade.js"></script>
+		<script type="text/javascript" src="config.js"></script>
 	</head>
 
 	<body>
-		<canvas id="mainCanvas" height="450px" width="600px"></canvas>
+		<canvas id="mainCanvas" height="450px" width="600px" tabindex="1"></canvas>
+
+		<script type="text/javascript">
+			init();
+
+			var app = new Lemonade(document.getElementById("mainCanvas"),33);
+
+			$("#mainCanvas").keypress(function(e) {
+				console.log("pressed " + e.charCode);
+			});
+
+			$("#mainCanvas").click(function(e) {
+				var posX = $(this).offset().left, posY = $(this).offset().top;
+				console.log((e.pageX - posX) + ", " + (e.pageY - posY));
+			});
+		</script>
 	</body>
-
-
 </html>
