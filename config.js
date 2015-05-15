@@ -1,4 +1,10 @@
 function init()
 {
-	window.stage = "edit";
+	if(localStorage.getItem("played") != "true")
+	{
+		window.stage = "tutorial";
+		tutorialInit();
+	} else {
+		window.stage = "menu";
+	}
 }

@@ -13,14 +13,25 @@
 			init();
 
 			var app = new Lemonade(document.getElementById("mainCanvas"),33);
+			var spriteList = ["assets/lol.jpeg"];
+
+			app.loadSprite(spriteList);
+
+			app.addRect("#FF0000",2,2,10,10,2);
+			app.addRect("#0000FF",2,2,20,20,1);
+			app.addImg(app.sprite[0],30,30,3);
 
 			$("#mainCanvas").keypress(function(e) {
 				console.log("pressed " + e.charCode);
 			});
 
 			$("#mainCanvas").click(function(e) {
-				var posX = $(this).offset().left, posY = $(this).offset().top;
-				console.log((e.pageX - posX) + ", " + (e.pageY - posY));
+				var posX = e.pageX - $(this).offset().left, posY = e.pageY - $(this).offset().top;
+				
+				if(window.stage == "tutorial")
+				{
+					tutorialClickHandler(posX,posY);
+				}
 			});
 		</script>
 	</body>
