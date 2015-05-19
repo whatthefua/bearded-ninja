@@ -3,3 +3,4 @@ A+B
 A-B
 A*B
 A%B
+min,max
